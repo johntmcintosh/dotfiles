@@ -1,0 +1,19 @@
+# https://github.com/anishathalye/dotbot
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- link:
+
+    # zsh
+    ~/.zshrc: zsh/zshrc
+    ~/.oh-my-zsh/themes/johntmcintosh.zsh-theme: zsh/johntmcintosh.zsh-theme 
+
+    # git
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+ 
