@@ -1,0 +1,28 @@
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -- \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[user]
+	name = John McIntosh
+	email = johntmcintosh@gmail.com
+[mergetool]
+	keepBackup = true
+[color]
+	ui = true
+[core]
+	editor = pico
+	excludesfile = ~/.gitignore_global
+[alias]
+	ksreview = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-master}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
+	tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
+	oops = reset --hard HEAD
+	bomb = !git reset --hard && git clean -x -f -d
+	shit = reset --hard HEAD~1
+	currentbranch = rev-parse --abbrev-ref HEAD
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
