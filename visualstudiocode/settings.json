@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "files.associations": {
+        "Fastfile": "ruby",
+        "Podfile": "ruby",
+        "*.gitignore": "gitignore",
+        "*.zsh-theme": "shellscript",
+    },
+    // Turn on word wrapping by default
+    "editor.wrappingColumn": 0,
+}
