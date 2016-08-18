@@ -5,6 +5,7 @@
         "Podfile": "ruby",
         "*.gitignore": "gitignore",
         "*.zsh-theme": "shellscript",
+        "zshrc": "shellscript",
     },
     // Turn on word wrapping by default
     "editor.wrappingColumn": 0,

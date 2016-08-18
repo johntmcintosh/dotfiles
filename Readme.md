@@ -12,11 +12,13 @@ I'm currently using [dotbot](https://github.com/anishathalye/dotbot) for managin
 
 ## To Do
 
+- [ ] organize zshrc and split out separate sources
 - [ ] configuration for brew-installed tools. `brew list`
 - [ ] investigate brew cask for installing some standard apps
 - [ ] configuration for gem-installed tools `gem list --local`
 - [ ] investigate [mackup](https://github.com/lra/mackup) for application preferences
 - [ ] custom scripts from `~/bin`
+- [ ] script macos preferences
 
 ## Additional Reading
 
