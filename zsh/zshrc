@@ -76,6 +76,11 @@ function gi() {
     curl https://raw.githubusercontent.com/johntmcintosh/gitignore/master/$1.gitignore -o .gitignore
 }
 
+# Launch safari to search the passed phrase 
+function google() { 
+    open /Applications/Safari.app/ "http://www.google.com/search?q=$1"; 
+}
+
 # Reload the shell profile
 alias reload='. ~/.zshrc'
 
