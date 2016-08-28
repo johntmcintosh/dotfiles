@@ -81,6 +81,12 @@ function google() {
     open /Applications/Safari.app/ "http://www.google.com/search?q=$1"; 
 }
 
+# Squash the last x number of git commits together. 
+# Usage: `git_squash 3` => Squash the last 3 commits
+function git_squash() {
+    git reset --soft HEAD~$1 && git commit
+}
+
 # Reload the shell profile
 alias reload='. ~/.zshrc'
 
