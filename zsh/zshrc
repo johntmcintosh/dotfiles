@@ -87,6 +87,13 @@ function git_squash() {
     git reset --soft HEAD~$1 && git commit
 }
 
+# Forget all files that are currently tracked by git, but should be ignored
+# based on the contents of the repo's gitignore.
+# http://stackoverflow.com/a/19095988/407523
+function git_forget() {
+    git rm -r --cached . && git add .
+}
+
 # Reload the shell profile
 alias reload='. ~/.zshrc'
 
