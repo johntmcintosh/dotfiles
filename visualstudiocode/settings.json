@@ -3,6 +3,7 @@
     "files.associations": {
         "Fastfile": "ruby",
         "Podfile": "ruby",
+        "CocoaPods.podfile": "ruby",
         "*.gitignore": "gitignore",
         "*.zsh-theme": "shellscript",
         "zshrc": "shellscript",

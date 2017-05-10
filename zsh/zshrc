@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/bin
 
+# Add fastlane to the path
+export PATH="$HOME/.fastlane/bin:$PATH"
+
 # Add user bin to path
 export PATH=~/bin:$PATH
 
@@ -61,7 +64,7 @@ alias vsc='code'
 alias codesign_verify='codesign -dv --verbose=4'
 
 # Get docs for standard http status codes
-function http() {
+function httpcode() {
     curl http://httpcode.info/$1;
 }
 
@@ -99,3 +102,12 @@ alias reload='. ~/.zshrc'
 
 # Open the shell configuration in text editor
 alias zshconfig="vs ~/.zshrc"
+
+# Enable autocomplete for fastlane lanes
+source ~/.fastlane/completions/completion.sh
+
+# Instantiate rbenv for ruby version management
+eval "$(rbenv init -)"
+
+# Shortcut for opening Xcode workspace from the current directory
+alias xcw="open *.xcworkspace"
