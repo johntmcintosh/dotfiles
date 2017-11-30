@@ -9,5 +9,6 @@
         "zshrc": "shellscript",
     },
     // Turn on word wrapping by default
-    "editor.wrappingColumn": 0,
+    "editor.wordWrap": "on",
+    "workbench.startupEditor": "newUntitledFile",
 }
