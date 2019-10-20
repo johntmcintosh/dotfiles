@@ -102,6 +102,13 @@ alias zshconfig="vs ~/.zshrc"
 # Enable autocomplete for fastlane lanes
 source ~/.fastlane/completions/completion.sh
 
+# Add helpers for going up the directory tree in terminal
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
 # Shortcut for opening Xcode workspace from the current directory
 alias xcw="open *.xcworkspace"
 alias xc="xed ."
