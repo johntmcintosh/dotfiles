@@ -19,17 +19,17 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/bin
 
-# Add fastlane to the path
-export PATH="$HOME/.fastlane/bin:$PATH"
+# Add AWS to the path
+# export PATH="$HOME/Library/Python/3.6/bin:$PATH"
+
+# Add fastlane to the path (when installed via `brew cask`)
+# export PATH="$HOME/.fastlane/bin:$PATH"
 
 # Add user bin to path
 export PATH=~/bin:$PATH
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# Add clubhouse bin to path
-export PATH=/projects/development/clubhouse/Scripting/bin:$PATH
 
 # Tell terminal to use colored outputs
 export CLICOLOR=1;
@@ -45,7 +45,8 @@ alias pod='nocorrect pod'
 alias ql='qlmanage -p "$@" >& /dev/null'
 
 # Git Aliases
-alias gst='git status'
+alias gst='echo "> git status"; git status;'
+alias gsu='echo "> git submodule update"; git submodule update;'
 
 # Reference: http://stackoverflow.com/a/18310499/407523
 alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
@@ -79,11 +80,6 @@ function gi() {
     curl https://raw.githubusercontent.com/johntmcintosh/gitignore/master/$1.gitignore -o .gitignore
 }
 
-# Launch safari to search the passed phrase 
-function google() { 
-    open /Applications/Safari.app/ "http://www.google.com/search?q=$1"; 
-}
-
 # Squash the last x number of git commits together. 
 # Usage: `git_squash 3` => Squash the last 3 commits
 function git_squash() {
@@ -106,8 +102,45 @@ alias zshconfig="vs ~/.zshrc"
 # Enable autocomplete for fastlane lanes
 source ~/.fastlane/completions/completion.sh
 
-# Instantiate rbenv for ruby version management
-eval "$(rbenv init -)"
-
 # Shortcut for opening Xcode workspace from the current directory
 alias xcw="open *.xcworkspace"
+alias xc="xed ."
+
+# Clean derived data in xcode
+alias xcclean="rm -rf ~/Library/Developer/Xcode/DerivedData"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# ---------------------------
+# Ruby
+# ---------------------------
+
+# Configure RubyGems to install into user directory
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$GEM_HOME
+export PATH=$GEM_HOME/bin:$PATH
+
+# ---------------------------
+# Chruby
+# ---------------------------
+
+# Add chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+
+# Set the default ruby version for new terminal sessions
+chruby ruby-2.6.5
+
+# Use chruby to auto switch ruby versions
+source /usr/local/opt/chruby/share/chruby/auto.sh
+
+# source nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+# ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
+# Note: this may interfere with building old versions of Ruby (e.g <2.4) that use OpenSSL <1.1.
+# To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following.
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

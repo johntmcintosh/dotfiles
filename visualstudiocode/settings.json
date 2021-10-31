@@ -11,4 +11,10 @@
     // Turn on word wrapping by default
     "editor.wordWrap": "on",
     "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.tree.indent": 20,
+    "editor.fontFamily": "'JetBrains Mono',Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "workbench.colorTheme": "Atom One Dark",
+    "security.workspace.trust.untrustedFiles": "open",
 }
