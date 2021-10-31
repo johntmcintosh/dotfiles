@@ -16,5 +16,7 @@
     "editor.fontFamily": "'JetBrains Mono',Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
     "workbench.colorTheme": "Atom One Dark",
+    "workbench.welcome.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
+    "vsicons.dontShowNewVersionMessage": true,
 }
