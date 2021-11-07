@@ -148,7 +148,7 @@ RPS1='$(git_prompt_string)'
 
 # --PROMPT AS --
 PROMPT=$'\
-%{$fg[cyan]%}%n%{$fg[white]%}|%{$fg_no_bold[cyan]%}%m: %{$fg[yellow]%}$(get_pwd)\
+%{$fg[cyan]%}%n%{$fg[white]%} | %{$fg_no_bold[cyan]%}$(arch) : %{$fg[yellow]%}$(get_pwd)\
 %{$reset_color%}→ '
 
 #

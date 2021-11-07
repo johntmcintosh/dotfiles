@@ -19,17 +19,19 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/usr/bin
 
-# Add AWS to the path
-# export PATH="$HOME/Library/Python/3.6/bin:$PATH"
-
-# Add fastlane to the path (when installed via `brew cask`)
-# export PATH="$HOME/.fastlane/bin:$PATH"
-
 # Add user bin to path
 export PATH=~/bin:$PATH
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Add brew to path
+if [ "$(uname -p)" = "i386" ]; then
+  echo "Running in i386 mode (Rosetta)"
+  eval "$(/usr/local/homebrew/bin/brew shellenv)"
+  alias brew='/usr/local/homebrew/bin/brew'
+else
+  echo "Running in ARM mode (M1)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  alias brew='/opt/homebrew/bin/brew'
+fi
 
 # Tell terminal to use colored outputs
 export CLICOLOR=1;
@@ -40,6 +42,10 @@ alias ls='ls -Fh'
 # Prevent Autocorrect
 alias cap='nocorrect cap'
 alias pod='nocorrect pod'
+
+# Architecture management
+alias archm="arch -arm64 zsh"
+alias archi="arch -x86_64 zsh"
 
 # Quicklook
 alias ql='qlmanage -p "$@" >& /dev/null'
@@ -133,21 +139,11 @@ export PATH=$GEM_HOME/bin:$PATH
 # ---------------------------
 
 # Add chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 
 # Set the default ruby version for new terminal sessions
-chruby ruby-2.6.5
+chruby ruby-2.6.8
 
 # Use chruby to auto switch ruby versions
-source /usr/local/opt/chruby/share/chruby/auto.sh
-
-# source nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-# ruby-build installs a non-Homebrew OpenSSL for each Ruby version installed and these are never upgraded.
-# Note: this may interfere with building old versions of Ruby (e.g <2.4) that use OpenSSL <1.1.
-# To link Rubies to Homebrew's OpenSSL 1.1 (which is upgraded) add the following.
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
