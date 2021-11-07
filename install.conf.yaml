@@ -16,8 +16,3 @@
     # git
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
- 
-    # visual studio code
-    ~/Library/Application Support/Code/User/keybindings.json: visualstudiocode/keybindings.json 
-    ~/Library/Application Support/Code/User/locale.json: visualstudiocode/locale.json 
-    ~/Library/Application Support/Code/User/settings.json: visualstudiocode/settings.json 
